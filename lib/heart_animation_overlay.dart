@@ -1,15 +1,17 @@
-library heart_animation_overlay;
+library flutter_heart_animation_overlay;
 
 import 'package:flutter/material.dart';
 
-class HeartAnimationOverlay extends StatefulWidget {
-  final Widget Function(BuildContext, void Function()) childBuilder;
-  HeartAnimationOverlay({@required this.childBuilder});
+class FlutterHeartAnimationOverlay extends StatefulWidget {
+  final Widget Function(BuildContext, void Function()) builder;
+  FlutterHeartAnimationOverlay({@required this.builder});
   @override
-  _HeartAnimationOverlayState createState() => _HeartAnimationOverlayState();
+  _FlutterHeartAnimationOverlayState createState() =>
+      _FlutterHeartAnimationOverlayState();
 }
 
-class _HeartAnimationOverlayState extends State<HeartAnimationOverlay> {
+class _FlutterHeartAnimationOverlayState
+    extends State<FlutterHeartAnimationOverlay> {
   double endAlpha1 = 0;
   double endAlpha2 = 0;
   double endAlpha3 = 0;
@@ -26,7 +28,7 @@ class _HeartAnimationOverlayState extends State<HeartAnimationOverlay> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        widget.childBuilder(context, animateHeart),
+        widget.builder(context, animateHeart),
         IgnorePointer(
           child: TweenAnimationBuilder(
             tween: Tween<double>(begin: 0, end: endAlpha1),

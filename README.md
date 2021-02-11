@@ -1,14 +1,38 @@
-# heart_animation_overlay
+# Flutter Heart Animation Overlay
 
-A new Flutter package project.
+A simple flutter plugin to add instagram like heart animation overlay to your app
 
-## Getting Started
+## installing
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+in your pubspec.yaml add
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```yaml
+dependencies:
+  flutter_heart_animation_overlay:
+    git: https://github.com/shreyassanthu77/flutter_heart_animation_overlay
+```
+
+## usage
+
+import the package
+
+```dart
+import 'package:flutter_heart_animation_overlay/heart_animation_overlay.dart'
+```
+
+use the package
+
+```dart
+FlutterHeartAnimationOverlay(
+    builder: (BuildContext context, void Function() animateHeart) {
+        return Container(
+            child: ElevatedButton(
+                child: Text("Like..."),
+                onPressed: () {
+                    animateHeart();
+                }
+            )
+        );
+    }
+)
+```
